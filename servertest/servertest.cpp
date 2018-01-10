@@ -74,7 +74,6 @@ int process_client(client_type &new_client, std::vector<client_type> &client_arr
 			}
 			else
 			{
-				//msg = "Client #" + std::to_string(new_client.id) + " Disconnected";
 				msg = client_name[new_client.id] + " disconnected";
 
 				std::cout << msg << std::endl;
@@ -172,8 +171,6 @@ int main()
 
 			if (client[i].socket != INVALID_SOCKET)
 				num_clients++;
-
-			//std::cout << client[i].socket << std::endl;
 		}
 
 		if (temp_id != -1)
@@ -192,25 +189,7 @@ int main()
 			send(incoming, msg.c_str(), strlen(msg.c_str()), 0);
 			std::cout << msg << std::endl;
 		}
-	} //end while
-
-
-	  //Close listening socket
-	/*closesocket(server_socket);
-
-	//Close client socket
-	for (auto i = 0; i < max_clients; i++)
-	{
-		my_thread[i].detach();
-		closesocket(client[i].socket);
 	}
-
-	//Clean up Winsock
-	WSACleanup();
-	std::cout << "Program has ended successfully" << std::endl;
-
-	system("pause");
-	return 0;*/
 }
 
 
